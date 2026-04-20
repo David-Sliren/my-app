@@ -47,7 +47,7 @@ export const USER_CONTRIBUTION = [
     id: 5,
     userName: "Yobile Alegria",
     relationship: "Hijo",
-    amount: 200000,
+    amount: 50000,
     date: defaultDate(DEFAUL_DATE),
     userState: true,
     userImg: "/family-img/Yobile-alegria.png",
