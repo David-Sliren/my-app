@@ -2,7 +2,7 @@ import { defaultDate } from "@/config/dates";
 
 const IMG_DEFAUL = "/family-img/Default.png";
 
-const DEFAUL_DATE = "2026,04,18";
+const DEFAUL_DATE = "2026-04-18";
 
 export const USER_CONTRIBUTION = [
   {
@@ -10,7 +10,7 @@ export const USER_CONTRIBUTION = [
     userName: "Sandra Andulce",
     relationship: "Hija",
     amount: 50000,
-    date: defaultDate("2026,04,19"),
+    date: defaultDate("2026-04-19"),
     userState: true,
     userImg: "/family-img/Sandra-andulce.png",
   },

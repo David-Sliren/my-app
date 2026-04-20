@@ -1,10 +1,14 @@
-import { format, formatDistance } from "date-fns";
+import { format, formatDistance, parseISO } from "date-fns";
 
 import { es } from "date-fns/locale";
 
 export const defaultDate = (date) => {
-  const objectData = new Date(date);
-  return format(objectData, "MMMM d 'de' y", { locale: es });
+  try {
+    const objectData = parseISO(date);
+    return format(objectData, "MMMM d 'de' y", { locale: es });
+  } catch (error) {
+    console.log("Error en defaultDate", error);
+  }
 };
 
 export const momentDate = (start, end = Date.now()) => {

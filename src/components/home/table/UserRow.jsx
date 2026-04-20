@@ -8,7 +8,7 @@ export const UserRow = ({
   amount,
   date,
   userState,
-  userImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuANFOPDICk8UKc5W6kBO2wq02SpMV62o_2gs898YQYa7Uge4FpCZ2Vain2R6uSGTtmblZmCSJ6qNoulXvSnEAMql4rkWojRKFDegV3M2qJcr5lJJ5PuPFs44pBDpKp65ZbyGd8srFDrnIZKs8S6dI86CmdI0FRcItDSR6LCGy2_ZtGZJAwjvGz56KipHW7tq1Ir-DKL_4iz0NxUDZhxwa6biFTS4WcrH3ifqDMqtgNwmQO_CixlVItl4ymbZ7WNkGdsr2Bw4FG4Hg",
+  userImg = "/family-img/Default.png",
 }) => {
   return (
     <tr className="hover:bg-surface-container-low/30 transition-colors group animate-slide-in-left">
