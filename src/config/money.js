@@ -1,0 +1,10 @@
+export const formatMoney = (value) => {
+  const cleanAmount = String(value).replace(/\D/g, "");
+
+  return new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(cleanAmount);
+};
