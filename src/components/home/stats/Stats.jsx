@@ -8,7 +8,7 @@ const STAT_CARD = [
   {
     iconName: <LuBriefcaseMedical />,
     title: "Próximo Medicamento",
-    more: "Insulina - 08:00 AM",
+    more: "Pendiente",
   },
   {
     iconName: <LuUsersRound />,
