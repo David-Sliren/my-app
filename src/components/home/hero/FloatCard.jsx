@@ -14,11 +14,11 @@ export const FloatCard = () => {
           <p className="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">
             Meta Mensual
           </p>
-          <p className="text-lg text-gray-950 font-bold">85% Completado</p>
+          <p className="text-lg text-gray-950 font-bold">65% Completado</p>
         </div>
       </article>
       <div className="h-2 w-full bg-surface-container rounded-full overflow-hidden">
-        <div className="h-full bg-primary w-[85%]" />
+        <div className="h-full bg-primary w-[65%]" />
       </div>
     </article>
   );
