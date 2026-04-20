@@ -40,7 +40,7 @@ export const UserTable = ({ startIndex, endIndex }) => {
               <HeadRow
                 key={item.text}
                 text={item.text}
-                classNameName={item.className}
+                className={item.className}
               />
             ))}
           </tr>
