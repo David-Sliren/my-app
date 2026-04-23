@@ -70,6 +70,15 @@ export const USER_CONTRIBUTION = [
     userState: true,
     userImg: IMG_DEFAUL,
   },
+  {
+    id: 8,
+    userName: "Jose Luis A.",
+    relationship: "Sobrino",
+    amount: 50000,
+    date: "2026-04-21",
+    userState: true,
+    userImg: "/family-img/JoseL-andulce.png",
+  },
 ];
 
 export const WALLET = USER_CONTRIBUTION.reduce((a, b) => a + b.amount, 0);
