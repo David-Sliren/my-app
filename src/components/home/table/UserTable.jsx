@@ -32,7 +32,7 @@ export const UserTable = ({ startIndex, endIndex }) => {
   const visibleUsers = USER_CONTRIBUTION.slice(startIndex, endIndex);
 
   return (
-    <arcticle className="overflow-x-auto">
+    <section className="overflow-x-auto">
       <table className="w-full text-left border-collapse">
         <thead>
           <tr className="bg-surface-container-low/50">
@@ -51,6 +51,6 @@ export const UserTable = ({ startIndex, endIndex }) => {
           ))}
         </tbody>
       </table>
-    </arcticle>
+    </section>
   );
 };
