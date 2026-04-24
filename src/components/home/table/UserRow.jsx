@@ -1,3 +1,4 @@
+import { defaultDate } from "@/config/dates";
 import { formatMoney } from "@/config/money";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -10,6 +11,8 @@ export const UserRow = ({
   userState,
   userImg = "/family-img/Default.png",
 }) => {
+  const rowFormatDate = defaultDate(date);
+
   return (
     <tr className="hover:bg-surface-container-low/30 transition-colors group animate-slide-in-left">
       <td className="px-8 py-6">
@@ -41,7 +44,9 @@ export const UserRow = ({
           {formatMoney(amount)}
         </p>
       </td>
-      <td className="px-8 py-6 text-on-surface-variant font-medium">{date}</td>
+      <td className="px-8 py-6 text-on-surface-variant font-medium">
+        {rowFormatDate}
+      </td>
       <td className="px-8 py-6 text-right">
         <span
           className={`inline-flex items-center gap-1.5 px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold  ${!userState && "bg-yellow-100 text-yellow-700"} `}
