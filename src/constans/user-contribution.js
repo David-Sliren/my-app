@@ -1,16 +1,17 @@
 import { defaultDate } from "@/config/dates";
+import { sortByDate } from "@/utils/sorts";
 
 const IMG_DEFAUL = "/family-img/Default.png";
 
 const DEFAUL_DATE = "2026-04-18";
 
-export const USER_CONTRIBUTION = [
+export const USER_CONTRIBUTION_DATA = [
   {
     id: 1,
     userName: "Sandra Andulce",
     relationship: "Hija",
     amount: 50000,
-    date: defaultDate("2026-04-19"),
+    date: "2026-04-19",
     userState: true,
     userImg: "/family-img/Sandra-andulce.png",
   },
@@ -19,7 +20,7 @@ export const USER_CONTRIBUTION = [
     userName: "Juan Salazar",
     relationship: "Sobrino",
     amount: 50000,
-    date: defaultDate(DEFAUL_DATE),
+    date: DEFAUL_DATE,
     userState: true,
     userImg: "/family-img/Juan-salazar.png",
   },
@@ -29,7 +30,7 @@ export const USER_CONTRIBUTION = [
     userName: "Jose Andulce",
     relationship: "Hijo",
     amount: 150000,
-    date: defaultDate(DEFAUL_DATE),
+    date: DEFAUL_DATE,
     userState: true,
     userImg: "/family-img/Jose-andulce.png",
   },
@@ -39,7 +40,7 @@ export const USER_CONTRIBUTION = [
     userName: "Daylon Andulce",
     relationship: "Sobrino",
     amount: 100000,
-    date: defaultDate(DEFAUL_DATE),
+    date: DEFAUL_DATE,
     userState: true,
     userImg: "/family-img/Daylon-andulce.png",
   },
@@ -48,7 +49,7 @@ export const USER_CONTRIBUTION = [
     userName: "Libar Alegria",
     relationship: "Hijo",
     amount: 50000,
-    date: defaultDate(DEFAUL_DATE),
+    date: DEFAUL_DATE,
     userState: true,
     userImg: "/family-img/Libar-alegria.png",
   },
@@ -57,7 +58,7 @@ export const USER_CONTRIBUTION = [
     userName: "Yobile Alegria",
     relationship: "Hijo",
     amount: 50000,
-    date: defaultDate(DEFAUL_DATE),
+    date: DEFAUL_DATE,
     userState: true,
     userImg: "/family-img/Yobile-alegria.png",
   },
@@ -66,7 +67,7 @@ export const USER_CONTRIBUTION = [
     userName: "Seneida",
     relationship: "Hermana",
     amount: 100000,
-    date: defaultDate(DEFAUL_DATE),
+    date: DEFAUL_DATE,
     userState: true,
     userImg: IMG_DEFAUL,
   },
@@ -80,5 +81,7 @@ export const USER_CONTRIBUTION = [
     userImg: "/family-img/JoseL-andulce.png",
   },
 ];
+
+export const USER_CONTRIBUTION = sortByDate(USER_CONTRIBUTION_DATA);
 
 export const WALLET = USER_CONTRIBUTION.reduce((a, b) => a + b.amount, 0);
