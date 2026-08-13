@@ -1,0 +1,18 @@
+@baseUrl=http://localhost:3000/api/dashboard/medicines
+@access-Token=access-token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZhNzUxYjM1OTYwZmFiZTY0YjhhMTlkMiIsInVzZXJuYW1lIjoiamhvamFuMTIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODYxMzgzMTAsImV4cCI6MTc4NjE0NTUxMH0.lQRNRhu4mn6qAYODvtyhcAjsuDZIfTqHFNJc3AKMXpc
+@medicineId=
+@patientId="6a751bb8ebf2c45726716633"
+###
+PUT  {{baseUrl}}/{{medicineId}}
+Cookie: {{access-Token}}
+Content-Type: application/json
+
+{
+    "name": "pañitos humedos",
+    "totalUnit": 2,
+    "price": 20000,
+    "concentration": "450mg",
+    "isMedicine":  false,
+    "status": "en orden",
+    "patientId": {{patientId}}
+}

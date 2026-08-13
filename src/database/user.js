@@ -1,5 +1,8 @@
 import { cleanUser } from "@/utils/mongoose-helper/cleanDatabase";
-import { deleteContributionOfUser } from "@/utils/mongoose-hooks/pretUser";
+import {
+  deleteAllContributionOfUser,
+  deleteAllPatientOfUser,
+} from "@/utils/mongoose-hooks/preUser";
 import {
   monthMoreActive,
   totalContributed,
@@ -12,7 +15,7 @@ const userSchema = new Schema(
     username: { type: String, required: true, unique: true, sparse: true },
     role: {
       type: String,
-      enum: ["user", "admin", "root"],
+      enum: ["user", "carer", "admin"],
       default: "user",
       required: true,
     },
@@ -26,6 +29,7 @@ const userSchema = new Schema(
     email: { type: String, default: "" },
     password: { type: String, required: true },
     contributions: [{ type: Schema.ObjectId, ref: "Contribution" }],
+    patients: [{ type: Schema.ObjectId, ref: "Patient" }],
     isDisabled: { type: Boolean, default: false },
   },
   {
@@ -35,7 +39,9 @@ const userSchema = new Schema(
   },
 );
 
-userSchema.pre("deleteOne", { document: true }, deleteContributionOfUser);
+userSchema.pre("deleteOne", { document: true }, deleteAllContributionOfUser);
+
+userSchema.pre("deleteOne", { document: true }, deleteAllPatientOfUser);
 
 userSchema.virtual("totalContributed").get(totalContributed);
 

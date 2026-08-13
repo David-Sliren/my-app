@@ -1,0 +1,16 @@
+@baseUrl=http://localhost:3000/api/dashboard/patient
+@userId="6a751b35960fabe64b8a19d2"
+
+### 
+PUT {{baseUrl}}/{{userId}}
+Content-Type: application/json
+
+{
+    "name": "David",
+    "lastName": "Andulces",
+    "age": 22,
+    "reason": "medicamentos",
+    "userId": {{userId}},
+    "description": "esta en el hospital santa barbara y neceitamos recaudar dinero para los medicamentos",
+    "monthlyGoal": 200000
+}
