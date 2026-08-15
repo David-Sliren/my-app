@@ -1,5 +1,5 @@
 import { Patient } from "@/database/patient";
-import { Medicine } from "@/database/medicine";
+import { Inventory } from "@/database/inventory";
 import { Expense } from "@/database/expense";
 import { User } from "@/database/user";
 import { conectToData } from "@/utils/mongoose-helper/db";
@@ -24,7 +24,7 @@ export class Patients {
 
     try {
       const patients = await Patient.findById(id)
-        .populate("medicines")
+        .populate("inventories")
         .populate("expenses");
 
       if (!patients) {

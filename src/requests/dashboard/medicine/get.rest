@@ -1,7 +1,0 @@
-@baseUrl=http://localhost:3000/api/dashboard/medicines
-@medicineId=
-###
-GET {{baseUrl}}
-
-###
-GET {{baseUrl}}/{{medicineId}}

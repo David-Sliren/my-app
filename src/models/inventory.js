@@ -1,13 +1,13 @@
-import { Medicine } from "@/database/medicine";
+import { Inventory } from "@/database/inventory";
 import { Patient } from "@/database/patient";
 import { User } from "@/database/user";
 import { conectToData } from "@/utils/mongoose-helper/db";
 
-export class Medicines {
+export class Inventories {
   static async getAll() {
     await conectToData();
 
-    const medicines = await Medicine.find({});
+    const medicines = await Inventory.find({});
 
     if (!medicines) {
       const customError = new Error("not found medicines");
@@ -22,7 +22,7 @@ export class Medicines {
     await conectToData();
 
     try {
-      const medicines = await Medicine.findById(id);
+      const medicines = await Inventory.findById(id);
 
       if (!medicines) {
         const customError = new Error("not found medicine");
@@ -61,7 +61,7 @@ export class Medicines {
         throw customError;
       }
 
-      const saveMedicine = new Medicine(data);
+      const saveMedicine = new Inventory(data);
       const newMedicine = await saveMedicine.save();
 
       if (!newMedicine) {
@@ -87,7 +87,7 @@ export class Medicines {
         throw customError;
       }
 
-      const medicine = await Medicine.findById(data.id);
+      const medicine = await Inventory.findById(data.id);
 
       if (!medicine) {
         const customError = new Error("not found medicine");
@@ -120,7 +120,7 @@ export class Medicines {
         throw customError;
       }
 
-      const updateMedicine = await Medicine.findByIdAndUpdate(id, data, {
+      const updateMedicine = await Inventory.findByIdAndUpdate(id, data, {
         new: true,
       });
 

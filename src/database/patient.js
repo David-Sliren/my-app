@@ -23,11 +23,10 @@ const patientSchema = new Schema(
   },
 );
 
-patientSchema.virtual("medicines", {
-  ref: "Medicine",
+patientSchema.virtual("inventories", {
+  ref: "Inventory",
   localField: "_id",
   foreignField: "patientId",
-  match: { isMedicine: true },
 });
 
 patientSchema.virtual("expenses", {

@@ -1,32 +1,8 @@
 import { TOKEN } from "@/constants/config";
 import { SECRET } from "@/constants/env";
-import { Medicines } from "@/models/medicine";
-import { medicineSchema } from "@/schemas/medicine";
+import { Inventories } from "@/models/inventory";
+import { inventorySchema } from "@/schemas/inventory";
 import { jwtVerify } from "jose";
-
-export const GET = async (_req, { params }) => {
-  const { id } = await params;
-
-  try {
-    const medicine = await Medicines.getById(id);
-    return Response.json(medicine);
-  } catch (error) {
-    if (error.code === "INVALID_ID") {
-      return Response.json({ error: error.message }, { status: 400 });
-    }
-
-    if (error.code === "USER_UNAUTHORIZED") {
-      return Response.json({ error: error.message }, { status: 401 });
-    }
-
-    if (error.code === "NOT_FOUND_MEDICINE") {
-      return Response.json(error.message, { status: 404 });
-    }
-
-    console.log("unexpected error: ", error);
-    return Response.json({ error: "internal server error" }, { status: 500 });
-  }
-};
 
 export const DELETE = async (req, { params }) => {
   const { id } = await params;
@@ -45,7 +21,7 @@ export const DELETE = async (req, { params }) => {
   }
 
   try {
-    const medicine = await Medicines.delete({ id, userId });
+    const medicine = await Inventories.delete({ id, userId });
     return Response.json(medicine);
   } catch (error) {
     if (error.code === "INVALID_ID") {
@@ -84,7 +60,7 @@ export const PUT = async (req, { params }) => {
 
   const fullData = { updateBy: userId, ...body };
 
-  const result = medicineSchema.safeParse(fullData);
+  const result = inventorySchema.safeParse(fullData);
 
   if (!result.success)
     return Response.json(
@@ -96,7 +72,7 @@ export const PUT = async (req, { params }) => {
     );
 
   try {
-    const medicine = await Medicines.update(id, result.data);
+    const medicine = await Inventories.update(id, result.data);
     return Response.json(medicine);
   } catch (error) {
     if (error.code === "INVALID_ID" || error.code === "CANT_UPDATE_MEDICINE") {
