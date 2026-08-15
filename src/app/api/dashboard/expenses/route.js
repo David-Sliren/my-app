@@ -4,21 +4,6 @@ import { Expenses } from "@/models/expense";
 import { expenseSchema } from "@/schemas/expense";
 import { jwtVerify } from "jose";
 
-export const GET = async () => {
-  try {
-    const expense = await Expenses.getAll();
-    return Response.json(expense);
-  } catch (error) {
-    if (error.code === "NOT_FOUND_EXPENSES") {
-      return Response.json({ error: error.message }, { status: 404 });
-    }
-
-    console.log("unexpected error: ", error);
-
-    return Response.json({ error: "internal server error" }, { status: 500 });
-  }
-};
-
 export const POST = async (req) => {
   const body = await req.json();
   const token = req.cookies.get(TOKEN);
