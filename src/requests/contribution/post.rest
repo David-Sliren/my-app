@@ -1,9 +1,10 @@
+@baseUrl=http://localhost:3000/api/contributions
 
 @idUser=6a2ced4e32ce6874459710cd
 @access-token=access-token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZhN2U3NzAzNDQ3MWQ0M2JkMzc0YmM1YSIsInVzZXJuYW1lIjoic2xpcmVuIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg2NzU4NTY5LCJleHAiOjE3ODY3NjU3Njl9.aCzPaD8JAtXe_0qiQ4odL4MP7LkuYzPf8Db1fByzkjY
 
 ### set contribution
-POST  http://localhost:3000/api/contribution
+POST  {{baseUrl}}
 Content-Type: application/json
 
 {
