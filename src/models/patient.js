@@ -1,4 +1,6 @@
 import { Patient } from "@/database/patient";
+import { Medicine } from "@/database/medicine";
+import { Expense } from "@/database/expense";
 import { User } from "@/database/user";
 import { conectToData } from "@/utils/mongoose-helper/db";
 
@@ -21,7 +23,9 @@ export class Patients {
     await conectToData();
 
     try {
-      const patients = await Patient.findById(id);
+      const patients = await Patient.findById(id)
+        .populate("medicines")
+        .populate("expenses");
 
       if (!patients) {
         const customError = new Error("not found patient");

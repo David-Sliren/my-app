@@ -1,5 +1,5 @@
-@baseUrl=http://localhost:3000/api/dashboard/patient
-@patientId=6a74f767abe1b50a785110bf
+@baseUrl=http://localhost:3000/api/dashboard/patients
+@patientId=6a7f8dffd04068b08abd6059
 
 ### All
 GET {{baseUrl}}

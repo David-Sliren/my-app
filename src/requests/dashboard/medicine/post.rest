@@ -1,6 +1,6 @@
 @baseUrl=http://localhost:3000/api/dashboard/medicines
-@access-Token=access-token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZhNzUxYjM1OTYwZmFiZTY0YjhhMTlkMiIsInVzZXJuYW1lIjoiamhvamFuMTIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODYxMzgzMTAsImV4cCI6MTc4NjE0NTUxMH0.lQRNRhu4mn6qAYODvtyhcAjsuDZIfTqHFNJc3AKMXpc
-@patientId="6a751bb8ebf2c45726716633"
+@access-Token=access-token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZhN2U3NzAzNDQ3MWQ0M2JkMzc0YmM1YSIsInVzZXJuYW1lIjoic2xpcmVuIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg2NzU4NTY5LCJleHAiOjE3ODY3NjU3Njl9.aCzPaD8JAtXe_0qiQ4odL4MP7LkuYzPf8Db1fByzkjY
+@patientId="6a7f8dffd04068b08abd6059"
 
 ###
 POST {{baseUrl}}

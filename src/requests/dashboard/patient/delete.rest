@@ -1,4 +1,4 @@
-@baseUrl=http://localhost:3000/api/dashboard/patient
+@baseUrl=http://localhost:3000/api/dashboard/patients
 @patientId=6a751ba9ebf2c45726716632
 
 ###

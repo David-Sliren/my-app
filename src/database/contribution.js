@@ -1,5 +1,4 @@
 import { cleanIdPlugin } from "@/utils/mongoose-helper/cleanDatabase";
-import { updateContributionInUser } from "@/utils/mongoose-hooks/postContribution";
 import { Schema, model, models } from "mongoose";
 
 const contributionSchema = new Schema(
@@ -22,8 +21,6 @@ const contributionSchema = new Schema(
   },
   { timestamps: true },
 );
-
-contributionSchema.post("save", updateContributionInUser);
 
 contributionSchema.plugin(cleanIdPlugin);
 

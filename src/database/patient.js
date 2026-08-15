@@ -1,6 +1,4 @@
 import { cleanIdPlugin } from "@/utils/mongoose-helper/cleanDatabase";
-import { updatePatientInUser } from "@/utils/mongoose-hooks/postPatient";
-import { deletePatientOfUser } from "@/utils/mongoose-hooks/prePatient";
 import { model, models, Schema } from "mongoose";
 
 const patientSchema = new Schema(
@@ -18,10 +16,26 @@ const patientSchema = new Schema(
     clinicName: { type: String, default: "" },
     isDisabled: { type: Boolean, default: false },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  },
 );
-patientSchema.pre("deleteOne", { document: true }, deletePatientOfUser);
-patientSchema.post("save", updatePatientInUser);
+
+patientSchema.virtual("medicines", {
+  ref: "Medicine",
+  localField: "_id",
+  foreignField: "patientId",
+  match: { isMedicine: true },
+});
+
+patientSchema.virtual("expenses", {
+  ref: "Expense",
+  localField: "_id",
+  foreignField: "patientId",
+});
+
 patientSchema.plugin(cleanIdPlugin);
 
 export const Patient = models.Patient || model("Patient", patientSchema);

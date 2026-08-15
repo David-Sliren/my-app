@@ -1,7 +1,9 @@
-@baseUrl=http://localhost:3000/api/dashboard/patient
+@baseUrl=http://localhost:3000/api/dashboard/patients
 @userId="6a751b35960fabe64b8a19d2"
+@access-token=access-token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZhN2U3NzAzNDQ3MWQ0M2JkMzc0YmM1YSIsInVzZXJuYW1lIjoic2xpcmVuIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg2NzQ0Mjk3LCJleHAiOjE3ODY3NTE0OTd9._gF2VoTHaWpjkMuqpMWEAw4ylQjA3HFmabH_c4-5HlQ
 ### default 
 POST {{baseUrl}}
+Cookie: {{access-token}}
 Content-Type: application/json
 
 {
@@ -9,7 +11,6 @@ Content-Type: application/json
     "lastName": "salazar",
     "age": 22,
     "reason": "medicamentos",
-    "userId": {{userId}},
     "description": "esta en el hospital santa barbara y neceitamos recaudar dinero para los medicamentos",
     "monthlyGoal": 200000
 }
