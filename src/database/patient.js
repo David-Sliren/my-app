@@ -1,6 +1,21 @@
 import { cleanIdPlugin } from "@/utils/mongoose-helper/cleanDatabase";
 import { model, models, Schema } from "mongoose";
 
+const months = [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+];
+
 const patientSchema = new Schema(
   {
     name: { type: String, required: true },
@@ -8,8 +23,8 @@ const patientSchema = new Schema(
     img: { type: String, default: "" },
     age: { type: Number, required: true },
     userId: { type: Schema.ObjectId, ref: "User" },
-    monthlyGoal: { type: Number, required: true },
-    currentFounds: { type: Number, required: true, default: 0 },
+    goal: { type: Number, required: true },
+    founds: { type: Number, required: true, default: 0 },
     reason: { type: String, required: true },
     description: { type: String, required: true },
     carerName: { type: String, default: "" },
