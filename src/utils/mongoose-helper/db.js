@@ -3,19 +3,45 @@ import mongoose from "mongoose";
 
 if (!MONGODB_URI) {
   throw new Error(
-    "La connection to database this bad, please connect to MONGODB_URI",
+    "MongoDB: Error critico no existe la variable de entorno MONGODB_URI",
   );
 }
 
-const cached = (global.mongoose = { conn: null });
+let cached = global.mongoose;
+
+if (!cached) cached = global.mongoose = { conn: null, promise: null };
+
+export const createConnetion = async () => {
+  try {
+    const moongosePromise = await mongoose.connect(MONGODB_URI, {
+      bufferCommands: false,
+    });
+
+    return moongosePromise;
+  } catch (error) {
+    cached.promise = null;
+    throw error;
+  }
+};
 
 export const conectToData = async () => {
   if (cached.conn) return cached.conn;
 
-  console.log("=> Creando nueva conexión a MongoDB...");
-  cached.conn = await mongoose.connect(MONGODB_URI, {
-    bufferCommands: false,
-  });
+  if (!cached.promise) {
+    console.log("=> Creando nueva conexión a MongoDB...");
+    cached.promise = createConnetion(); // Importante devolver la promea sin resolver
+  }
+
+  try {
+    cached.conn = await cached.promise;
+  } catch (error) {
+    console.error(
+      "MongoDB: error critico en la conexion a la base de datos - ",
+      error,
+    );
+    throw error;
+  }
+
   return cached.conn;
 };
 
@@ -24,5 +50,5 @@ mongoose.connection.on("connected", () =>
 );
 
 mongoose.connection.on("error", (error) =>
-  console.log(`=>  Error en la conexion ... ${error}`),
+  console.log(`MongoDB: Error en la conexion ... ${error}`),
 );
