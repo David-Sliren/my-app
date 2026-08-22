@@ -3,8 +3,8 @@
 import { LuShoppingCart } from "react-icons/lu";
 import { CartCard } from "./CartCard";
 import { useMedicineStorage } from "@/store/medicineStore";
-import Lottie from "lottie-react";
-import Medicine from "@/lottie-files/Medicine.json";
+// import { Lottie } from "lottie-react";
+// import Medicine from "@/lottie-files/files/Medicine.json";
 import { useUserStore } from "@/components/provaider/AuthProvider";
 
 export const Cart = () => {
@@ -46,11 +46,7 @@ export const Cart = () => {
 
           {!products.length ? (
             <div className="text-primary">
-              <Lottie
-                className="size-50"
-                animationData={Medicine}
-                loop={true}
-              />
+              {/* <Lottie className="size-50" src={Medicine} autoplay loop /> */}
               <span>No hay productos</span>
             </div>
           ) : (
