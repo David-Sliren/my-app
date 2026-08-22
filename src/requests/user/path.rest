@@ -1,7 +1,8 @@
+@baseUrl=http://localhost:3000/api/users
 @idUser=12
 
 ### update 
-PATCH http://localhost:3000/api/contribution
+PATCH {{baseUrl}}/{{idUser}}
 Content-Type: application/json
 
 {

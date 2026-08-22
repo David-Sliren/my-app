@@ -1,0 +1,18 @@
+@baseUrl=http://localhost:3000/api/dashboard/inventories
+@access-Token=access-token=eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjZhN2U3NzAzNDQ3MWQ0M2JkMzc0YmM1YSIsInVzZXJuYW1lIjoic2xpcmVuIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzg2NzY4MjczLCJleHAiOjE3ODY3NzU0NzN9.-Up37M4ktCDdIctOgfinnuw6IdtjG11ZV9sKg4G4Al8
+@patientId="6a7f8dffd04068b08abd6059"
+
+###
+POST {{baseUrl}}
+Cookie: {{access-Token}}
+Content-Type: application/json
+
+{
+    "name": "vitamina E",
+    "totalUnit": 2,
+    "concentration": "500mg",
+    "status": "en orden",
+    "patientId": {{patientId}},
+    "category": "suplemento",
+    "description": "son vitaminas para la piel"
+}

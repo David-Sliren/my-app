@@ -2,6 +2,7 @@
 
 import { useUserStore } from "@/components/provaider/AuthProvider";
 import { formatMoney } from "@/config/money";
+import { useUserQueryById } from "@/hooks/tanstack/query/useQueryUser";
 import clsx from "clsx";
 import React from "react";
 import {
@@ -34,8 +35,8 @@ const Stat = ({ icon: Icon, label, more, variants }) => {
   );
 };
 
-export const Impact = () => {
-  const user = useUserStore((state) => state.user);
+export const Impact = ({ patientId }) => {
+  const { data: user } = useUserQueryById(patientId);
 
   const stats = [
     {

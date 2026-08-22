@@ -1,0 +1,9 @@
+@baseUrl=http://localhost:3000/api/dashboard/patients
+@patientId=6a7f8dffd04068b08abd6059
+
+### All
+GET {{baseUrl}}
+
+### by id
+
+GET {{baseUrl}}/{{patientId}}

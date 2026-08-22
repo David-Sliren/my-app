@@ -1,0 +1,7 @@
+@baseUrl=http://localhost:3000/api/expenses
+@expenseId=6a7ff1c88b2c207dbf375305
+###
+GET {{baseUrl}}
+
+###
+GET {{baseUrl}}/{{expenseId}}

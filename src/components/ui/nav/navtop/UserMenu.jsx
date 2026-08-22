@@ -6,6 +6,7 @@ import { AnimatePresence } from "motion/react";
 import { LuChevronDown } from "react-icons/lu";
 import { DropDown } from "./DropDown";
 import { useUserStore } from "@/components/provaider/AuthProvider";
+import { blurColors } from "@/constants/bgBase64";
 
 export const UserMenu = () => {
   const user = useUserStore((state) => state.user);
@@ -37,6 +38,8 @@ export const UserMenu = () => {
           src={user?.img || "/family-img/Default.png"}
           height={500}
           width={500}
+          placeholder="blur"
+          blurDataURL={blurColors.purple}
         />
         <LuChevronDown
           size={16}
@@ -48,6 +51,7 @@ export const UserMenu = () => {
       <AnimatePresence>
         {isOpen && (
           <DropDown
+            id={user?.id}
             username={user?.username}
             email={user?.email}
             handleDropdown={handleDropdown}

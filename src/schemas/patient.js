@@ -1,0 +1,13 @@
+import z from "zod";
+
+export const patientSchema = z.object({
+  name: z.string().min(3, "Debe tener minimo 3 caracteres"),
+  lastName: z.string().min(3, "Debe tener minimo 3 caracteres"),
+  age: z.number().min(1, "Debe tener como minimo 1 año"),
+  userId: z.string().regex(/^[0-9a-fA-F]{24}$/, "el id no es valido"),
+  goal: z.number().min(100000, "Debe ser mayor a 100000"),
+  reason: z.string().min(3, "Debe tener como minimo 3 caracteres"),
+  description: z.string().min(3, "Debe tener minimo 3 caracteres"),
+  carerName: z.string().min(3, "Debe tener minimo 3 caracteres").optional(),
+  clinicName: z.string().min(3, "Debe tener minimo 3 caracteres").optional(),
+});

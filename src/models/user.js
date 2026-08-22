@@ -6,7 +6,7 @@ export class Users {
   static async getAll() {
     await conectToData();
 
-    const user = await User.find({});
+    const user = await User.find({}).populate("contributions", { amount: 1 });
 
     if (!user) {
       const customError = new Error("not found user");
@@ -23,7 +23,12 @@ export class Users {
     await conectToData();
 
     try {
-      const user = await User.findById(id).populate("contributions");
+      const user = await User.findById(id).populate("contributions", {
+        amount: 1,
+        date: 1,
+        purpose: 1,
+      });
+
       if (!user) {
         const customError = new Error("not found user");
 

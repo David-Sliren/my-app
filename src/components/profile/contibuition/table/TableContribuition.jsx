@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
+import { AnimationEmpy } from "@/lottie-files/components/AnimationEmpy";
 import { DetailsRow } from "./DetailsRow";
 import { FooterButton } from "./FooterButton";
 import { usePagination } from "@/hooks/usePagination";
-import { useUserStore } from "@/components/provaider/AuthProvider";
 import { sortByDate } from "@/utils/sorts";
 
 const HEAD_ROW = [
@@ -31,8 +30,8 @@ const HeadRow = ({ label, className }) => {
   );
 };
 
-export const TableContribuition = () => {
-  const userContributions = useUserStore((state) => state.user?.contributions);
+export const TableContribuition = ({ contributions }) => {
+  const userContributions = contributions;
 
   const {
     page,
@@ -49,25 +48,31 @@ export const TableContribuition = () => {
     sortByDate(userContributions || [])?.slice(startIndex, endIndex) || [];
 
   return (
-    <div className="overflow-x-auto rounded-xl">
-      <table className="w-full text-left border-collapse">
-        <thead>
-          <tr className="bg-surface-container-low">
-            {HEAD_ROW.map((hr) => (
-              <HeadRow
-                key={hr.label}
-                label={hr.label}
-                className={hr.className}
-              />
-            ))}
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-outline-variant/5">
-          {visibleDetails.map((dr) => (
-            <DetailsRow key={dr.id} {...dr} />
-          ))}
-        </tbody>
-      </table>
+    <article className="rounded-xl">
+      <div className="overflow-x-auto min-h-114">
+        {visibleDetails.length === 0 ? (
+          <AnimationEmpy />
+        ) : (
+          <table className="w-full h-fit text-left border-collapse">
+            <thead>
+              <tr className="bg-surface-container-low">
+                {HEAD_ROW.map((hr) => (
+                  <HeadRow
+                    key={hr.label}
+                    label={hr.label}
+                    className={hr.className}
+                  />
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-outline-variant/5">
+              {visibleDetails.map((dr) => (
+                <DetailsRow key={dr.id} {...dr} />
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
 
       <FooterButton
         prev={prevPage}
@@ -77,6 +82,6 @@ export const TableContribuition = () => {
         isFirstPage={isFirstPage}
         isLastPage={islastPage}
       />
-    </div>
+    </article>
   );
 };

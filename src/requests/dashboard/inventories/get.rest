@@ -1,0 +1,7 @@
+@baseUrl=http://localhost:3000/api/inventories
+@medicineId=6a7e7e9c4471d43bd374bc5c
+###
+GET {{baseUrl}}
+
+###
+GET {{baseUrl}}/{{medicineId}}

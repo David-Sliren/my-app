@@ -1,3 +1,4 @@
+import { TanstackProvider } from "@/components/provaider/TanstackProvider";
 import "./globals.css";
 import { bodyFont } from "@/config/fonts";
 import { ANALYTICS } from "@/constants/env";
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
       className={`${bodyFont.variable} h-full antialiased not-scrollbar lg:scroll-hiden `}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <TanstackProvider>{children}</TanstackProvider>
+      </body>
       <GoogleAnalytics gaId={ANALYTICS} />
     </html>
   );

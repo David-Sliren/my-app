@@ -3,7 +3,7 @@
 import React from "react";
 import { TableContribuition } from "./table/TableContribuition";
 import { HeaderStat } from "./HeaderStat";
-import { useUserStore } from "@/components/provaider/AuthProvider";
+import { useUserQueryById } from "@/hooks/tanstack/query/useQueryUser";
 
 const Empty = () => {
   return (
@@ -13,13 +13,14 @@ const Empty = () => {
   );
 };
 
-export const Contribuition = () => {
-  const colaborations = useUserStore((state) => state.user?.contributions);
+export const Contribuition = ({ patientId }) => {
+  const { data } = useUserQueryById(patientId);
+  const contributions = data?.contributions;
 
   return (
     <section className="mb-16 animate-slide-in-bottom">
       <HeaderStat />
-      {colaborations?.length === 0 ? <Empty /> : <TableContribuition />}
+      <TableContribuition contributions={contributions} />
     </section>
   );
 };

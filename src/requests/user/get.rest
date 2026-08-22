@@ -1,15 +1,12 @@
-
-@idUserFind=6a5169acfdadcbd446ce3607
+@baseUrl=http://localhost:3000/api/users
+@idUserFind=6a868c390d22f35f4e379049
 @idUserDelete=6a2ced4832ce6874459710cc
 
-### delete all users
-GET http://localhost:3000/api/delete
-
 ### get all users
-GET http://localhost:3000/api/user
+GET {{baseUrl}}
 
 ### get user by id
-GET http://localhost:3000/api/user/{{idUserFind}}
+GET {{baseUrl}}/{{idUserFind}}
 
 ### delete user
-DELETE http://localhost:3000/api/user/{{idUserDelete}}
+DELETE {{baseUrl}}/{{idUserDelete}}
