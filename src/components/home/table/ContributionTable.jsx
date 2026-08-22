@@ -1,26 +1,24 @@
 "use client";
 
-import React from "react";
 import { LuDownload, LuListFilter } from "react-icons/lu";
 
 import { UserTable } from "./UserTable";
 import { FooterButton } from "./FooterButton";
 import { usePagination } from "@/hooks/usePagination";
-import { USER_CONTRIBUTION } from "@/constants/user-contribution";
+import { useContributionQueryAll } from "@/hooks/tanstack/query/useQueryContribution";
 
 export const ContributionTable = () => {
+  const { data } = useContributionQueryAll();
   const {
     page,
-    currentItems,
     endIndex,
     startIndex,
     isFirstPage,
     islastPage,
-    totalItems,
     totalPages,
     prevPage,
     nextPage,
-  } = usePagination(USER_CONTRIBUTION.length, 4);
+  } = usePagination(data?.length ?? 1, 4);
 
   return (
     <section className="py-24 px-6">

@@ -1,7 +1,12 @@
-import { useUserStore } from "@/components/provaider/AuthProvider";
 import axios from "axios";
+import { getBaseUrl } from "../config";
 
-export const baseUrlAuth = axios.create({ baseURL: "/api/auth/" });
+export const baseUrlAuth = axios.create({
+  baseURL: `/api/auth/`,
+});
+export const baseUrlUser = axios.create({
+  baseURL: `${getBaseUrl()}/api/users`,
+});
 
 // baseUrlAuth.interceptors.response.use(
 //   (response) => response,

@@ -1,5 +1,5 @@
 @baseUrl=http://localhost:3000/api/users
-@idUserFind=6a7f8d87d04068b08abd6058
+@idUserFind=6a868c390d22f35f4e379049
 @idUserDelete=6a2ced4832ce6874459710cc
 
 ### get all users
