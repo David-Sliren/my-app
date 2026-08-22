@@ -2,8 +2,8 @@
 import { useUserStore } from "@/components/provaider/AuthProvider";
 import { LuHeart } from "react-icons/lu";
 
-export const UserInfo = () => {
-  const user = useUserStore((state) => state.user);
+export const UserInfo = ({ profiledata }) => {
+  const user = profiledata;
 
   return (
     <div className="flex flex-col gap-2 text-center md:text-left">

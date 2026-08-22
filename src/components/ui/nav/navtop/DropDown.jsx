@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { LuLogOut, LuUser } from "react-icons/lu";
 
-export const DropDown = ({ username = "", email = "", handleDropdown }) => {
+export const DropDown = ({ id, username = "", email = "", handleDropdown }) => {
   const logout = useUserStore((state) => state.logout);
 
   async function handleLogout() {
@@ -37,7 +37,7 @@ export const DropDown = ({ username = "", email = "", handleDropdown }) => {
       {/* Opciones */}
       <div className="p-2 flex flex-col gap-1">
         <Link
-          href="/profile"
+          href={`/profile/${id}`}
           onClick={handleDropdown}
           className="flex items-center gap-3 px-3 py-2 text-sm text-gray-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors cursor-pointer"
         >
