@@ -30,6 +30,7 @@ const patientSchema = new Schema(
     carerName: { type: String, default: "" },
     clinicName: { type: String, default: "" },
     isDisabled: { type: Boolean, default: false },
+    isMain: { type: Boolean, default: false },
   },
   {
     timestamps: true,
