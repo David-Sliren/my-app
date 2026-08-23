@@ -7,6 +7,7 @@ import { HydrationBoundary, dehydrate } from "@tanstack/react-query";
 import { getQueryClient } from "@/utils/tanstackQuery-config";
 import { contributionQueryOptions } from "@/hooks/tanstack/query/useQueryContribution";
 import { userQueryAllOptions } from "@/hooks/tanstack/query/useQueryUser";
+import { mainPatientQueryOptions } from "@/hooks/tanstack/query/useQueryPatient";
 
 export default async function Home({ searchParams }) {
   const query = await searchParams;
@@ -16,6 +17,7 @@ export default async function Home({ searchParams }) {
   await Promise.all([
     queryClient.prefetchQuery(userQueryAllOptions()),
     queryClient.prefetchQuery(contributionQueryOptions()),
+    queryClient.prefetchQuery(mainPatientQueryOptions()),
   ]);
 
   return (
