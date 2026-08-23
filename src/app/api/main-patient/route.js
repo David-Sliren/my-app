@@ -7,7 +7,7 @@ export const GET = async (_req) => {
     const patient = await Patients.getAll();
     let mainpatient = patient.length
       ? patient[0].toJSON({ virtuals: false })
-      : [];
+      : {};
 
     return Response.json(mainpatient);
   } catch (error) {
